@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+.friends {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.friends-pageheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.friends-card {
+  width: fit-content;
+}
+/* 
+.friends-card:hover {
+  background-color: brown;
+  transition: ease-in 1.6;
+} */

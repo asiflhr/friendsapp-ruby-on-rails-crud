@@ -1,14 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Friends</h1>
-
-<div id="friends">
-  <% @friends.each do |friend| %>
-    <%= render friend %>
-    <p>
-      <%= link_to "Show this friend", friend %>
-    </p>
-  <% end %>
+<div class='friends-pageheader'>
+  <h1>Friends</h1>
+  <%= link_to "Add Friend", new_friend_path, class:'btn btn-success btn-lg' %>
 </div>
 
-<%= link_to "New friend", new_friend_path %>
+
+<div id="friends" class="friends">
+  <% @friends.each do |friend| %>
+    <div class='card'>
+      <div class='card-body'>
+        <%= render friend %>
+        <%= link_to "Show this friend", friend, class:'btn btn-info' %>
+      </div>
+    </div>
+  <% end %>
+</div>
