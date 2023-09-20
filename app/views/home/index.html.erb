@@ -1,2 +1,7 @@
 <h1>Hey! This is Homepage</h1>
-<p>Goto Friends App <%= link_to 'here', friends_path %></p>
+<p>Goto Friends App <% if user_signed_in? %>
+                        <%= link_to 'here', friends_path %>
+                    <% else %>
+                        <%= link_to 'here', new_user_session_path%> 
+                    <% end %>
+</p>

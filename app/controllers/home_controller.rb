@@ -3,5 +3,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    @about_me = "My name is John"
+    @user = @current_user
   end
 end

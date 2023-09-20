@@ -1,16 +1,23 @@
-<div class='friends-pageheader'>
-  <h1>Friends</h1>
-  <%= link_to "Add Friend", new_friend_path, class:'btn btn-success btn-lg' %>
-</div>
+<% if current_user %>
+  <div class='friends-pageheader'>
+    <h1>Friends</h1>
+    <%= link_to "Add Friend", new_friend_path, class:'btn btn-success btn-lg' %>
+  </div>
 
 
-<div id="friends" class="friends">
-  <% @friends.each do |friend| %>
-    <div class='card'>
-      <div class='card-body'>
-        <%= render friend %>
-        <%= link_to "Show this friend", friend, class:'btn btn-info' %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <div id="friends" class="friends">
+    <% @friends.each do |friend| %>
+      <% if friend.user == current_user %>
+        <div class='card'>
+          <div class='card-body'>
+            <%= render friend %>
+            <%= link_to "Show this friend", friend, class:'btn btn-info' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <h1>Hey! This is Homepage</h1>
+  <p><%= link_to 'Sign In', new_user_session_path%> to Friends App</p>
+<% end %>
